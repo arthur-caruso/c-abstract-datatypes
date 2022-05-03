@@ -31,18 +31,18 @@ int delete_node(node_t *head, node_t *del_node) {
 	return 1;
 }
 
-node_t *insert_at_head(node_t **head, node_t *node_to_insert) {
+int insert_at_head(node_t **head, node_t *node_to_insert) {
 	node_to_insert->next = *head;
 	*head = node_to_insert;
-	return node_to_insert;
+	return 1;
 }
 
-node_t *insert_at_tail(node_t *head, node_t *node_to_insert) {
+int insert_at_tail(node_t *head, node_t *node_to_insert) {
 	node_t *tmp = head;
 	while (tmp->next != NULL) tmp = tmp->next;
 	tmp->next = node_to_insert;
 	node_to_insert->next = NULL;
-	return node_to_insert;
+	return 1;
 }
 
 node_t *find_node(node_t *head, int value) {
