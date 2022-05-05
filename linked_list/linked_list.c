@@ -1,13 +1,13 @@
 #include "linked_list.h"
 
 void print_list(node_t *head) {
-	node_t *tmp = head;
+	node_t *temp = head;
 	printf("{");
-	while (tmp->next != NULL) {
-		printf("%d, ", tmp->value);
-		tmp = tmp->next;
+	while (temp->next != NULL) {
+		printf("%d, ", temp->value);
+		temp = temp->next;
 	}
-	printf("%d}", tmp->value);
+	printf("%d}", temp->value);
 }
 
 node_t *create_node(int value) {
@@ -18,38 +18,38 @@ node_t *create_node(int value) {
 }
 
 int delete_node(node_t *head, node_t *del_node) {
-	node_t *tmp = head;
-	node_t *aux = del_node;
-	node_t *prv = NULL;
-	while (aux != tmp) {
-		prv = tmp;
-		tmp = tmp->next;
-		if (tmp == NULL) return 1;
+	node_t *temp = head;
+	node_t *prev = NULL;
+	while (temp != del_node) {
+		prev = temp;
+		if (temp == NULL) return 1;
+		else temp = temp->next;
 	}
-	prv->next = aux->next;
-	free(aux);
+	prev->next = del_node->next;
+	free(del_node);
 	return 0;
 }
 
-int insert_at_head(node_t **head, node_t *node_to_insert) {
-	node_to_insert->next = *head;
-	*head = node_to_insert;
+int insert_at_head(node_t **head, node_t *node_nsrt) {
+	node_nsrt->next = *head;
+	*head = node_nsrt;
 	return 0;
 }
 
-int insert_at_tail(node_t *head, node_t *node_to_insert) {
-	node_t *tmp = head;
-	while (tmp->next != NULL) tmp = tmp->next;
-	tmp->next = node_to_insert;
-	node_to_insert->next = NULL;
+int insert_at_tail(node_t *head, node_t *node_nsrt) {
+	node_t *temp = head;
+	while (temp->next != NULL)
+		temp = temp->next;
+	temp->next = node_nsrt;
+	node_nsrt->next = NULL;
 	return 0;
 }
 
 node_t *find_node(node_t *head, int value) {
-	node_t *tmp = head;
-	while (tmp != NULL) {
-		if (tmp->value == value) return tmp;
-		tmp = tmp->next;
+	node_t *temp = head;
+	while (temp != NULL) {
+		if (temp->value == value) return temp;
+		else temp = temp->next;
 	}
 	return NULL;
 }
