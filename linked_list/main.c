@@ -25,7 +25,7 @@ int main() {
 	// searching vor value 68 on list
 	tmp = find_node(head, value);
 	if (tmp != NULL)
-		printf("found the node of value %d at address %p\n", tmp, tmp->value);
+		printf("found the node of value %d at address %p\n", tmp->value, tmp);
 	else
 		printf("could not locate node of value %d\n", value);
 
