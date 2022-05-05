@@ -17,16 +17,16 @@ node_t *create_node(int value) {
 	return result;
 }
 
-int delete_node(node_t *head, node_t *del_node) {
+int delete_node(node_t *head, node_t *node_del) {
 	node_t *temp = head;
 	node_t *prev = NULL;
-	while (temp != del_node) {
+	while (temp != node_del) {
 		prev = temp;
 		if (temp == NULL) return 1;
 		else temp = temp->next;
 	}
-	prev->next = del_node->next;
-	free(del_node);
+	prev->next = node_del->next;
+	free(node_del);
 	return 0;
 }
 
