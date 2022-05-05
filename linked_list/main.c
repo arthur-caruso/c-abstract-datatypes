@@ -3,21 +3,24 @@
 int main() {
 	node_t *head = NULL;
 	node_t *tmp;
+	int value;
 
 	// adding some values into the list
 	for (int i = 0; i < 10; i++) {
-		tmp = create_node(i);
+		// simultaneously adding nodes with values
+		// from 0 to 9 at head and tail of list
+		value = i;
+		tmp = create_node(value);
 		insert_at_head(&head, tmp);
-		tmp = create_node(i);
+		tmp = create_node(value);
 		insert_at_tail(head, tmp);
 	}
-	
+
 	// creating a node with value 68 at tail of list
-	int value = 68;
-	
+	value = 68;
 	tmp = create_node(value);
 	insert_at_tail(head, tmp);
-	
+
 	// printing list
 	print_list(head);
 	printf("\n");
@@ -25,7 +28,7 @@ int main() {
 	// searching vor value 68 on list
 	tmp = find_node(head, value);
 	if (tmp != NULL)
-		printf("found the node of value %d at address %p\n", tmp->value, tmp);
+		printf("found node of value %d at address %p\n", tmp->value, tmp);
 	else
 		printf("could not locate node of value %d\n", value);
 
