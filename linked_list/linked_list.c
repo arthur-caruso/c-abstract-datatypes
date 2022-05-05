@@ -24,17 +24,17 @@ int delete_node(node_t *head, node_t *del_node) {
 	while (aux != tmp) {
 		prv = tmp;
 		tmp = tmp->next;
-		if (tmp == NULL) return 0;
+		if (tmp == NULL) return 1;
 	}
 	prv->next = aux->next;
 	free(aux);
-	return 1;
+	return 0;
 }
 
 int insert_at_head(node_t **head, node_t *node_to_insert) {
 	node_to_insert->next = *head;
 	*head = node_to_insert;
-	return 1;
+	return 0;
 }
 
 int insert_at_tail(node_t *head, node_t *node_to_insert) {
@@ -42,7 +42,7 @@ int insert_at_tail(node_t *head, node_t *node_to_insert) {
 	while (tmp->next != NULL) tmp = tmp->next;
 	tmp->next = node_to_insert;
 	node_to_insert->next = NULL;
-	return 1;
+	return 0;
 }
 
 node_t *find_node(node_t *head, int value) {
