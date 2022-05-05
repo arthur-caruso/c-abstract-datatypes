@@ -30,11 +30,11 @@ int main() {
 		printf("could not locate node of value %d\n", value);
 
 	// demonstrating deletion of node
-	if (!delete_node(head, tmp + 1)) // does not point to a node
+	if (delete_node(head, tmp + 1)) // tmp + 1 does not point to a node
 		printf("could not delete node of address %p\n", tmp + 1);
 	else printf("successfully deleted node of address %p\n", tmp + 1);
 
-	if (!delete_node(head, tmp)) // points to node of value 68
+	if (delete_node(head, tmp)) // tmp points to node of value 68
 		printf("could not delete node of address %p\n", tmp);
 	else printf("successfully deleted node of address %p\n", tmp);
 
